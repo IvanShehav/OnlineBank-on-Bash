@@ -1,5 +1,7 @@
 #!/bin/bash
 
+clear
+
 #функция определения времени суток
 function timeFunction() {
     time=$(date +%H:%M:%S)
@@ -16,6 +18,7 @@ function timeFunction() {
     then
         echo "Доброй ночи!"
     fi
+
 }
 
 
@@ -47,7 +50,7 @@ function login() {
         echo "Такого пользователя не существует."
         echo "Пожалуйста, пройдите процедуру регистрации."
         echo
-        register
+        exit 1
     else
         echo
         echo "Неверное имя пользователя или пароль."
@@ -58,7 +61,6 @@ function login() {
 
 #функция для регистрации нового пользователя
 function register() {
-
     balance=0 #баланс пользователя
 
     #проверка на наличие файла
@@ -90,7 +92,6 @@ function register() {
         echo
         echo "Пользователь $new_username успешно зарегистрирован."
     fi
-
     login
 }
 
@@ -195,7 +196,7 @@ function bankDeposit() {
                 ;;
                 4) echo "Ответсвенное лицо: ПАО МТС-банк" >> "$DataBaseDirection/deposit.txt"
                 ;;
-                5) echo "Ответсвенное лицо: АНО Сириус" >> "$DataBaseDirection/deposit.txt"
+                5) echo "Ответсвенное лицо: АО Сириус" >> "$DataBaseDirection/deposit.txt"
                 ;;
             esac
             echo "Сумма: $count" >> "$DataBaseDirection/deposit.txt"
