@@ -127,7 +127,7 @@ generate_account_number() {
 
 #функция записи трат
 function write_expense() {
-    read -p "Выберите катеорию трат: " category
+    read -p "Выберите категорию трат: " category
     read -p "Введите сумму: " amount
 
     echo "$(date +%d.%m.%Y) - $category: $amount" >> $DataBaseDirection/transactions.txt
